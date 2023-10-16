@@ -32,26 +32,35 @@
 //    - Declare a variable rSync = require('readline-sync')
 //    - Declare a variable value = rSync.question(question)
 //    - return the value
-// - Define a function sum(num)
-//    - Declare a variable totalSum = 0
-//    - Create a foor loop that starts with 1 all the way to the number used as an argument to the function
+// - Define a function sum(arrayOfNumbers)
+//    - Declare a variable arrayTotalSum = []
+//    - Create a foor loop to iterate over each element of the array
+//    - Create a nested foor loop that starts with 1 all the way to the number that we are iterating over in the array
 //    - Collect in the variable totalSum the sum of each iteration
-//    - At the end of the loop return the value of totalSum
-// - Define a function product(num)
-//    - Declare a variable totalProduct = 1
-//    - Create a foor loop that starts with 1 until num provided as an argument
+//    - Push the elemennt into the arrayTotalSum
+//    - At the end of the loop return the aray arrayTotalSum
+// - Define a function product(arrayOfNumbers)
+//    - Declare a variable arrayTotalProduct = []
+//    - Create a foor loop to iterate over each element of the array
+//    - Create a nested foor loop that starts with 1 until num in the array
 //    - Multiply each value and store it in totalProduct
-//    - Return the value of totalProduct
+//    - Push totalProduct into arraytotalSum
+//    - Return arraytotalSum
 // - Define a main() function with no arguments
-//    - Declare a variable number = parseInt(userInput('Please enter and integer greater than 0:'))
-//    - If number is <= 0 I will throw an user input error
+//    - Declare a variable value = userInput('Please enter a list of integers greater than 0, separated by space:'))
+//    - Remove empty spaces from the String value.split(" ");
+//    - Convert the String into an Array
 //    - Declare a variable compute = userInput('Enter "s" to compute the sum, or "p" to compute the product.')
-//    - If compute is "s" => invoke sum(number)
-//      - Declare a variable totalSum = invoke sum(number)
-//      - console.log('The sum of the integers between 1 and ${number} is ${totalSum}')
-//    - If compute is "p" => invoke product(number)
-//      - Declare a variable totalProduct = product(number)
-//      - console.log('The product of the integers between 1 and ${number} is ${totalProduct}')
+//    - If compute is "s" => invoke sum(array)
+//      - Declare a variable totalSum = invoke sum(array)
+//      - Loop over the array and check for 0 or negative values, if so, log an error
+//      - if not log to the console the value of the array + value of the result
+//      - console.log('The sum of the integers between 1 and ${arrayOfInts[idx]} is ${result[idx]}')
+//    - If compute is "p" => invoke product(array)
+//      - Declare a variable totalProduct = product(array)
+//      - Loop over the array and check for 0 or negative values, if so, log an error
+//      - if not log to the console the value of the array + value of the result
+//      - console.log('The product of the integers between 1 and ${arrayOfInts[idx]} is ${result[idx]}')
 
 // Code
 function userInput(question) {
