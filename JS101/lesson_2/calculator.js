@@ -27,4 +27,6 @@ switch (operation) {
   case '4':
     console.log(firstNumber / secondNumber);
     break;
+  default:
+    console.log('Invalid input!');
 }
