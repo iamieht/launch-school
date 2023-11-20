@@ -16,8 +16,8 @@
 //  SET iterator = 0
 //  SET resultArray
 //  WHILE iterator <= length first array
-//    resultArray = array1[itertor]
-//    resultArray = array2[iterator]
+//    resultArray.push(array1[iterator])
+//    resultArray.push(array2[iterator])
 //  PRINT resultArray
 
 // Code
