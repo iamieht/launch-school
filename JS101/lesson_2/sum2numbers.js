@@ -15,6 +15,7 @@
 // SET result
 // result = num1 + num2
 // PRINT result
+// END
 
 // Code
 function sum(num1, num2) {
