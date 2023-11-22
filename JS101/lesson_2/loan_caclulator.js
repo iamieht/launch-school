@@ -35,3 +35,7 @@ console.log(
   `Total of ${loanDurationInMonths} Payments: ${totalPayments.toFixed(2)}`
 );
 console.log(`Total Interest: ${totalInterest.toFixed(2)}`);
+
+// TODO
+// - Validate inputs
+// - 0% interest rate
