@@ -1,21 +1,27 @@
 const READLINE = require('readline-sync');
 
+// Helper functions
 function prompt(msg) {
   console.log(`=> ${msg}`);
 }
 
 function invalidNumber(num) {
-  return num.trimStart() === '' || Number.isNaN(Number(num));
+  return num.trimStart() === '' ||
+          Number(num) < 1       ||
+          Number.isNaN(Number(num));
 }
 
+
 function calculateLoan(loanAmount, monthlyInterestRate, loanDurationInMonths) {
-  let monthlyPayment =
-  Number(loanAmount) *
-  (monthlyInterestRate /
-    (1 - Math.pow(1 + monthlyInterestRate, -Number(loanDurationInMonths))));
+  let monthlyPayment = Number(loanAmount) *
+              (monthlyInterestRate /
+              (1 - Math.pow((1 + monthlyInterestRate),
+                (-Number(loanDurationInMonths)))));
 
   return monthlyPayment;
 }
+
+// Main logic
 
 prompt('Welcome to the Loan Calculator!');
 
@@ -42,7 +48,7 @@ prompt('What is the Interest Rate (In %)?');
 let annualInterestRate = READLINE.question();
 
 while (invalidNumber(annualInterestRate)) {
-  prompt("Hmmm... that doesn't look like a valid number.");
+  prompt("Hmmm... that is not a valid interest rate!.");
   annualInterestRate = READLINE.question();
 }
 
@@ -58,11 +64,11 @@ let totalInterest = (monthlyPayment * loanDurationInMonths) - loanAmount;
 // Display the results: Montlhy Payment / Total Payments / Total Interest
 console.log(`Payment Every Month: $${monthlyPayment.toFixed(2)}`);
 console.log(
-  `Total of ${loanDurationInMonths} Payments: ${totalPayments.toFixed(2)}`
+  `Total of ${loanDurationInMonths} Payments: $${totalPayments.toFixed(2)}`
 );
-console.log(`Total Interest: ${totalInterest.toFixed(2)}`);
+console.log(`Total Interest: $${totalInterest.toFixed(2)}`);
 
 // TODO
-// - Validate inputs
+// - Validate inputs [X]
 // - 0% interest rate
 // - Move calculation to a function [X]
