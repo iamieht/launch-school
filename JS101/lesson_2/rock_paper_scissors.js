@@ -1,7 +1,3 @@
-// ask the user for their move
-// the computer will choose their move
-// display who won / the result
-
 const readline = require('readline-sync');
 const VALID_CHOICES = ['rock', 'paper', 'scissors'];
 
