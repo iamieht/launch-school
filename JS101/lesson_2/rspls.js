@@ -17,56 +17,28 @@ function choiceToName(choice) {
     return 'lizard';
   } else if (choice === 's') {
     return 'scissors';
+  } else {
+    return null;
   }
 }
 
 function displayWinner(choice, computerChoice) {
   prompt(`You chose ${choice}. Computer chose ${computerChoice}`);
 
-  if (
-    (choice === 'rock' && computerChoice === 'scissors') ||
-    (choice === 'rock' && computerChoice === 'lizard') ||
-    (choice === 'scissors' && computerChoice === 'paper') ||
-    (choice === 'scissors' && computerChoice === 'lizard') ||
-    (choice === 'paper' && computerChoice === 'rock') ||
-    (choice === 'paper' && computerChoice === 'spock') ||
-    (choice === 'lizard' && computerChoice === 'spock') ||
-    (choice === 'lizard' && computerChoice === 'paper') ||
-    (choice === 'spock' && computerChoice === 'rock') ||
-    (choice === 'spock' && computerChoice === 'scissors')
-  ) {
-    prompt('You won!');
-  } else if (
-    (choice === 'scissors' && computerChoice === 'rock') ||
-    (choice === 'scissors' && computerChoice === 'spock') ||
-    (choice === 'paper' && computerChoice === 'scissors') ||
-    (choice === 'paper' && computerChoice === 'lizard') ||
-    (choice === 'rock' && computerChoice === 'paper') ||
-    (choice === 'rock' && computerChoice === 'spock') ||
-    (choice === 'lizard' && computerChoice === 'rock') ||
-    (choice === 'lizard' && computerChoice === 'scissors') ||
-    (choice === 'spock' && computerChoice === 'paper') ||
-    (choice === 'spock' && computerChoice === 'lizard')
-  ) {
-    prompt('Computer won!');
+  let diff =
+    (VALID_CHOICES.indexOf(computerChoice) - VALID_CHOICES.indexOf(choice)) % 5;
+
+  if (diff < 0) {
+    diff += 5;
+  }
+
+  if (diff === 1 || diff === 2) {
+    prompt('Computer wins!');
+  } else if (diff === 3 || diff === 4) {
+    prompt('You win!');
   } else {
     prompt("It's a tie!");
   }
-
-  // let diff = (Number(computerChoice) - Number(choice)) % 5;
-  // if (diff < 0) {
-  //   diff += 5;
-  // }
-
-  // console.log(`diff: ${diff}`);
-
-  // if (diff === 1 || diff === 2) {
-  //   prompt('Computer wins!');
-  // } else if (diff === 3 || diff === 4) {
-  //   prompt('You win!');
-  // } else {
-  //   prompt("It's a tie!");
-  // }
 }
 
 while (true) {
